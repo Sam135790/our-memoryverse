@@ -43,6 +43,7 @@ jobs:
         run: |
           export CI=false
           npm run build
+          mkdir -p dist
           touch dist/.nojekyll
 
       - name: Setup Pages
