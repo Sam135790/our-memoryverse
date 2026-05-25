@@ -5,6 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // 👈 ADDED THIS LINE BELOW FOR GITHUB PAGES
+  base: "/our-memoryverse/", 
+  
   server: {
     host: "::",
     port: 8080,
