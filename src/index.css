@@ -2,104 +2,188 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* =========================================================
+   A Universe Made For You — Design System
+   Midnight romance × Nostalgic poetry parchment
+   All colors HSL. All tokens semantic.
+   ========================================================= */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* --- Midnight romantic palette (default scenes) --- */
+    --background: 232 38% 6%;
+    --foreground: 36 30% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 232 35% 9%;
+    --card-foreground: 36 30% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 232 38% 8%;
+    --popover-foreground: 36 30% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 350 72% 70%;          /* rose petal */
+    --primary-foreground: 232 40% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 232 30% 14%;
+    --secondary-foreground: 36 30% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 232 25% 14%;
+    --muted-foreground: 36 18% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 50% 70%;           /* lilac moonlight */
+    --accent-foreground: 232 40% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 36 30% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 232 25% 18%;
+    --input: 232 25% 16%;
+    --ring: 350 72% 70%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* --- Custom romantic tokens --- */
+    --moonlight: 50 90% 88%;
+    --rose: 350 72% 70%;
+    --rose-deep: 348 60% 55%;
+    --lilac: 270 55% 75%;
+    --midnight: 232 50% 8%;
+    --midnight-deep: 235 60% 4%;
+    --starlight: 45 100% 92%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* parchment / poetry palette */
+    --parchment: 38 55% 88%;
+    --parchment-deep: 32 45% 78%;
+    --ink: 24 35% 18%;
+    --candle: 32 90% 65%;
+    --sepia: 28 50% 40%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* gradients */
+    --gradient-midnight: radial-gradient(ellipse at top, hsl(235 55% 14%) 0%, hsl(var(--midnight-deep)) 70%);
+    --gradient-romance: linear-gradient(135deg, hsl(var(--rose) / 0.9), hsl(var(--lilac) / 0.85));
+    --gradient-parchment: radial-gradient(ellipse at center, hsl(38 60% 90%) 0%, hsl(32 45% 78%) 70%, hsl(28 40% 65%) 100%);
+    --gradient-final: radial-gradient(ellipse at bottom, hsl(270 50% 18%) 0%, hsl(var(--midnight-deep)) 70%);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* shadows / glows */
+    --glow-rose: 0 0 60px hsl(var(--rose) / 0.5), 0 0 120px hsl(var(--rose) / 0.25);
+    --glow-moon: 0 0 80px hsl(var(--moonlight) / 0.4);
+    --glow-candle: 0 0 40px hsl(var(--candle) / 0.6), 0 0 80px hsl(var(--candle) / 0.3);
+    --shadow-deep: 0 30px 80px -20px hsl(0 0% 0% / 0.7);
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* sidebar (kept for shadcn) */
+    --sidebar-background: 232 38% 6%;
+    --sidebar-foreground: 36 30% 92%;
+    --sidebar-primary: 350 72% 70%;
+    --sidebar-primary-foreground: 232 40% 8%;
+    --sidebar-accent: 232 30% 14%;
+    --sidebar-accent-foreground: 36 30% 92%;
+    --sidebar-border: 232 25% 18%;
+    --sidebar-ring: 350 72% 70%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  * { @apply border-border; }
+  html, body, #root {
+    height: 100%;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 }
+
+/* =========== Utility / cinematic classes =========== */
+@layer utilities {
+  .font-display { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 0.01em; }
+  .font-script  { font-family: 'Dancing Script', cursive; }
+  .font-hand    { font-family: 'Caveat', cursive; }
+  .font-tamil   { font-family: 'Noto Sans Tamil','Catamaran', sans-serif; }
+  .font-sans-soft { font-family: 'Inter', sans-serif; font-weight: 300; }
+
+  .text-glow-rose   { text-shadow: 0 0 24px hsl(var(--rose) / 0.7), 0 0 60px hsl(var(--rose) / 0.4); }
+  .text-glow-moon   { text-shadow: 0 0 30px hsl(var(--moonlight) / 0.7), 0 0 80px hsl(var(--moonlight) / 0.35); }
+  .text-glow-candle { text-shadow: 0 0 18px hsl(var(--candle) / 0.7), 0 0 50px hsl(var(--candle) / 0.4); }
+
+  .bg-midnight   { background: var(--gradient-midnight); }
+  .bg-final      { background: var(--gradient-final); }
+  .bg-parchment  { background: var(--gradient-parchment); }
+  .bg-romance    { background: var(--gradient-romance); }
+
+  .vignette::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 40%, hsl(0 0% 0% / 0.55) 100%);
+  }
+  .vignette-warm::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 35%, hsl(24 60% 8% / 0.55) 100%);
+  }
+
+  .film-grain::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 60;
+    opacity: 0.07; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .paper-texture {
+    background-color: hsl(38 55% 88%);
+    background-image:
+      radial-gradient(hsl(32 40% 70% / 0.25) 1px, transparent 1px),
+      radial-gradient(hsl(28 35% 60% / 0.18) 1px, transparent 1px),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/></svg>");
+    background-size: 7px 7px, 11px 11px, 400px 400px;
+  }
+
+  .ink-fade-edges {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
+            mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
+  }
+
+  .star-twinkle { animation: twinkle 3s ease-in-out infinite; }
+  .float-slow   { animation: float-slow 8s ease-in-out infinite; }
+  .float-slower { animation: float-slow 14s ease-in-out infinite; }
+  .breathe      { animation: breathe 4s ease-in-out infinite; }
+  .candle-flicker { animation: flicker 2.4s ease-in-out infinite; }
+  .drift-up    { animation: drift-up 18s linear infinite; }
+  .pulse-glow  { animation: pulse-glow 3s ease-in-out infinite; }
+  .shimmer-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--moonlight) / 0.7), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.2); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%      { transform: translateY(-20px) translateX(8px); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1);    opacity: 0.85; }
+  50%      { transform: scale(1.04); opacity: 1; }
+}
+@keyframes flicker {
+  0%,100% { opacity: 1;    filter: brightness(1); }
+  45%     { opacity: 0.85; filter: brightness(1.15); }
+  55%     { opacity: 0.95; filter: brightness(0.9); }
+}
+@keyframes drift-up {
+  0%   { transform: translateY(110vh) translateX(0) rotate(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(40px) rotate(180deg); opacity: 0; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 40px hsl(var(--rose) / 0.4), 0 0 80px hsl(var(--rose) / 0.2); }
+  50%      { box-shadow: 0 0 70px hsl(var(--rose) / 0.7), 0 0 140px hsl(var(--rose) / 0.4); }
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+::selection { background: hsl(var(--rose) / 0.4); color: hsl(var(--starlight)); }
